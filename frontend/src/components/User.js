@@ -4,7 +4,9 @@ import React from 'react'
 
 
 const UserItem = ({user}) => {
-   return (
+    user.first_name = undefined;
+    user.last_name = undefined;
+    return (
        <tr>
            <td>
                {user.username}
@@ -23,17 +25,17 @@ const UserItem = ({user}) => {
 }
 
 
-const UserList = ({user}) => {
+const UserList = ({users}) => {
    return (
        <table>
            <th>
                Username
            </th>
            <th>
-               First name
+               Firs_name
            </th>
            <th>
-               Last Name
+               Last_name
            </th>
            <th>
                Email
