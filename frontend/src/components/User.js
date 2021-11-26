@@ -20,7 +20,9 @@ const UserItem = ({user}) => {
 }
 
 const UsersItem = ({user}) => {
-   return (
+    user.last_name = undefined;
+    user.first_name = undefined;
+    return (
        <tr>
            <td>
                {user.username}
