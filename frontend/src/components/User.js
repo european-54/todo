@@ -7,24 +7,6 @@ const UserItem = ({user}) => {
    return (
        <tr>
            <td>
-               {user.first_name}
-           </td>
-           <td>
-               {user.last_name}
-           </td>
-           <td>
-               {user.birthday_year}
-           </td>
-       </tr>
-   )
-}
-
-const UsersItem = ({user}) => {
-    user.last_name = undefined;
-    user.first_name = undefined;
-    return (
-       <tr>
-           <td>
                {user.username}
            </td>
            <td>
@@ -41,7 +23,7 @@ const UsersItem = ({user}) => {
 }
 
 
-const UserList = ({users}) => {
+const UserList = ({user}) => {
    return (
        <table>
            <th>
