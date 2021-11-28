@@ -7,4 +7,3 @@ class Users(models.Model):
     last_name = models.CharField(max_length=64)
     email = models.EmailField(max_length=128)
 
-# Create your models here.
