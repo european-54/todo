@@ -1,7 +1,13 @@
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 from django.shortcuts import render
+
 from rest_framework.viewsets import ModelViewSet
-from .models import Users
-from .serializers import UserModelSerializer
+from .models import Users, Guest, Project, Notes
+from .serializers import UserModelSerializer, GuestSerializer, NotesSerializer, ProjectSerializer
+
+from collections import namedtuple
 
 
 class UserModelViewSet(ModelViewSet):
