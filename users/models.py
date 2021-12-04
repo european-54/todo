@@ -14,3 +14,18 @@ class Users(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+
+class Project(models.Model):
+    mame = models.CharField(max_length=64)
+    link_in_repo = models.CharField(max_length=256)
+
+
+class Guest(models.Model):
+    name = models.CharField(max_length=20)
+    age = models.IntegerField(default=20)
+    phone = models.CharField(max_length=20)
+    email = models.CharField(max_length=30)
+
+    def __str__(self) -> str:
+        return self.name
