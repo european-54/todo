@@ -29,3 +29,9 @@ class Guest(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+
+class Notes:
+    todo_1 = models.CharField(max_length=5120)
+    todo_2 = models.CharField(max_length=5120)
+    todo_3 = models.CharField(max_length=5120)
