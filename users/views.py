@@ -13,3 +13,13 @@ from collections import namedtuple
 class UserModelViewSet(ModelViewSet):
     queryset = Users.objects.all()
     serializer_class = UserModelSerializer
+
+
+nt = namedtuple("object", ["model", "serializers"])
+pattern = {
+    "guest": nt(Guest, GuestSerializer),
+    "notes": nt(Notes, NotesSerializer),
+    "project": nt(Project, ProjectSerializer),
+    "users": nt(Users, UserModelSerializer),
+    }
+
