@@ -1,7 +1,14 @@
+from datetime import timedelta
+
 from django.db import models
+from django.utils.datetime_safe import datetime
 
 
 class Users(models.Model):
+    def __init__(self, *args, **kwargs):
+        super().__init__(args, kwargs)
+        self.user = None
+
     username = models.CharField(max_length=64)
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
@@ -17,3 +24,31 @@ class Guest(models.Model):
     def __str__(self) -> str:
         return self.name
 
+
+class Frontend:
+    pass
+
+
+class Notes(models.Model):
+    guest = models.ForeignKey(Guest, on_delete=models.CASCADE)
+    user = models.ForeignKey(Users, on_delete=models.CASCADE)
+    frontend = models.ForeignKey(Frontend, on_delete=models.CASCADE)
+    num_of_guest = models.IntegerField(default=1)
+    checkin_date = models.DateField(default=datetime.now)
+    checkout_date = models.DateField(default=datetime.now)
+    is_checkout = models.BooleanField(default=False)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(args, kwargs)
+        self.notes = None
+
+    def __str__(self) -> str:
+        return self.guest.name
+
+    def hotel_name(self) -> str:
+        return self.user.user
+
+    def charge(self) -> float:
+        return self.is_checkout * \
+               (self.checkout_date - self.checkin_date + timedelta(1)).days * \
+               self.notes.price
