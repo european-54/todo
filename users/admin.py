@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Users, Notes, Frontend
 
-# Register your models here.
+
+admin.site.register(Users)
+admin.site.register(Notes)
+admin.site.register(Frontend)
